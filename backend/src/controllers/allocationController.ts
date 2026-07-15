@@ -11,6 +11,7 @@ export const AllocationController = {
         try {
             const { applicantId, programId, quotaType, allotmentNumber } = req.body;
             const admission = await AllocationService.allocate(applicantId, programId, quotaType, allotmentNumber);
+            console.log(`Allocated seat for Applicant ${applicantId} in Program ${programId} under Quota ${quotaType}`);
             return res.json(admission);
         } catch (e: any) {
             console.error(e);
