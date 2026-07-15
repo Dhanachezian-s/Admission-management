@@ -13,6 +13,7 @@ export const AllocationController = {
             const admission = await AllocationService.allocate(applicantId, programId, quotaType, allotmentNumber);
             return res.json(admission);
         } catch (e: any) {
+            console.error(e);
             return res.status(400).json({ error: e.message });
         }
     },
